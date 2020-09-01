@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Flight</title>
+</head>
+
+<body>
+    <nav id="nav">
+        <ul>
+            <li>
+                <a href="/flights">All Flights</a>
+            </li>
+        </ul>
+    </nav>
+   <form action="/flights/<%= flight._id %>?_method=PUT" method="POST">
+        <label for="airline">Edit Airline:
+            <select name="airline">
+                <option value="American">American</option>
+                <option value="United">United</option>
+                <option value="Delta">Delta</option>
+                <option value="Southwest">Southwest</option>
+            </select>
+        </label>
+        <label for="airport">Edit Airport:
+            <select name="airport">
+            <!-- 'ATL', 'DFW', 'DEN', 'LAX', 'SAN' -->
+            <option value="AUS">AUS</option>
+            <option value="LAX">LAX</option>
+            <option value="DMV">DMV</option>
+            <option value="MKE">MKE</option>
+            <option value="ATL">ATL</option>
+            <option value="DEN">DEN</option>
+            <option value="DFW">DFW</option>
+            <option value="SAN">SAN</option>
+            </select>
+        </label>
+     
+        <label for="flightNo">Edit Flight Number:
+            <input type="number" name="flightNo" value="<%= flight.flightNo %>"> 
+        </label>
+        
+        <label for="date">Edit Date:
+            <input type="datetime-local" name="departs" value="<%= flightDeparts %>">
+        </label>
+        <input type="submit" value="Edit Flight">
+    </form> 
+</body>
+</html>

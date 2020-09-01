@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Details</title>
+</head>
+<body>
+    <nav id="nav">
+        <ul>
+            <li>
+                <a href="/flights">All Flights</a>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Flight Details</h1>
+    </header>
+
+<div>
+    <div>Airline:</div> <br>
+    <div><%=flight.airline %> </div>
+    <div>Airport:</div> <br>
+    <div><%=flight.airport %></div>
+    <div>Flight Number:</div> <br>
+    <div><%=flight.flightNo %></div>
+    <div>Departure Date:</div> <br>
+    <div><%=flight.departs %></div>
+</div>
+<h2 class="showDestination"><H2>Show Destination(s)</h2>
+<% if (flight.destinations.length > 0) { %>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Arrival Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% flight.destinations.forEach((place) => { %>
+            <tr>
+                <td><%=place.airport%></td>
+                <td><%=place.arrival%></td>
+            </tr>
+           <% }) %>
+        </tbody>
+    </table>
+    <% } %>
+</div>
+<div>
+    <h3>Add Destination(s)</h3>
+    <form method="POST" 
+    action="/flights/<%= flight._id %>/destinations">
+    <label for="add-dest-form">Destinations</label>
+    <select name="airport">
+        <% if (flight.airport !== "AUS" && flight.destinations.filter(e => e.airport === 'AUS').length === 0) { %> 
+            <option value="AUS">AUS</option>
+        <% } %>
+        <% if (flight.airport !== "DAL" && flight.destinations.filter(e => e.airport === 'DAL').length === 0) { %> 
+            <option value="DAL">DAL</option>
+        <% } %>
+        <% if (flight.airport !== "LAX" && flight.destinations.filter(e => e.airport === 'LAX').length === 0) { %> 
+            <option value="LAX">LAX</option>
+        <% } %>
+        <% if (flight.airport !== "SAN" && flight.destinations.filter(e => e.airport === 'SAN').length === 0) { %> 
+            <option value="SAN">SAN</option>
+        <% } %>
+        <% if (flight.airport !== "SEA" && flight.destinations.filter(e => e.airport === 'SEA').length === 0) { %> 
+            <option value="SEA">SEA</option>
+        <% } %>
+        <% if (flight.airport !== "ATL" && flight.destinations.filter(e => e.airport === 'SEA').length === 0) { %> 
+            <option value="ATL">ATL</option>
+        <% } %>
+        <% if (flight.airport !== "DFW" && flight.destinations.filter(e => e.airport === 'SEA').length === 0) { %> 
+            <option value="DFW">DFW</option>
+        <% } %>
+        <% if (flight.airport !== "DEN" && flight.destinations.filter(e => e.airport === 'SEA').length === 0) { %> 
+            <option value="DEN">DEN</option>
+        <% } %>
+        <% if (flight.airport !== "MKE" && flight.destinations.filter(e => e.airport === 'SEA').length === 0) { %> 
+            <option value="MKE">MKE</option>
+        <% } %>
+        <% if (flight.airport !== "DMV" && flight.destinations.filter(e => e.airport === 'SEA').length === 0) { %> 
+            <option value="DMV">DMV</option>
+        <% } %>
+    </select>
+            <label for="date">Date:
+                   <input type="datetime-local" name="arrival" value="<%= dest  %>">
+            </label>
+
+            <button class="submit-button" type="submit">Submit</button>
+    
+        </form>
+        </div>
+<h2>Tickets</h2>
+    <table>
+        <td>
+            <tr>
+                <% if (tickets.length > 0) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Destination</th>
+                            <th>Arrival Time</th>
+                        </tr>
+                    </thead>
+                   
+                    <tbody>
+                    
+                        <% tickets.forEach((t) => { %>
+                        <tr>
+                            <td><%=t.seat%></td>
+                            <td><%=t.price%></td>
+                        </tr>
+                       <% }) %>
+                    </tbody>
+                <% }else{ %> 
+                </table>
+                <a href="/flights/<%= flight._id %>/ticket/new">Add tickets</a>
+            </tr>
+        </td>
+    <% } %> 
+    </table>
+    </body>
+</html>

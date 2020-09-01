@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <nav id="nav">
+        <ul>
+            <li>
+                <a href="/flights">All Flights</a>
+            </li>
+        </ul>
+    </nav>
+    <ul>
+        <h2>Enter a new Flight</h2>
+        <li>
+            <form action="/flights" method="POST">
+            <label for="airline"> Airline:
+                <select name="airline">
+                    <option value="United">United</option>
+                    <option value="Southwest">Southwest</option>
+                    <option value="Delta">Delta</option>
+                    <option value="American">American</option>
+                </select>
+            </label> 
+        </li><br>
+        <li>
+            <form action="/flights" method="POST">
+                <label for="airport"> Airport:
+                    <select name="airport">
+                     <!-- 'ATL', 'DFW', 'DEN', 'LAX', 'SAN','MKE','DMV' -->
+                        <option value="AUS">AUS</option>
+                        <option value="LAX">LAX</option>
+                        <option value="DMV">DMV</option>
+                        <option value="MKE">MKE</option>
+                        <option value="ATL">ATL</option>
+                        <option value="DEN">DEN</option>
+                        <option value="DFW">DFW</option>
+                        <option value="SAN">SAN</option>
+
+                    </select>
+                </label>
+        </li> <br>
+        <li>
+            <form action="/flights" method="POST">
+            <label> Flight Number 
+                <input type="number" name="flightNo">
+            </label> 
+        <label for="date">Date:
+            <input type="datetime-local" name="departs" value="<%= destDate %>">
+        </label>
+        </li> <br>
+    </ul>
+    <input type="submit" value="Add Flight">
+</form>
+</body>
+</html>

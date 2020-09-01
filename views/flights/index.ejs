@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<header>
+    <nav id="nav">
+      <ul>
+          <li>
+            <a href="/flights">All Flights</a>
+          </li>
+          <li>
+              <a href="/flights/new">New flights</a>
+          </li>
+        </ul>
+    </nav>
+</header>
+  <body>
+    <h1>Flights List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Airline</th> <br>
+          <th>Airport</th> <br>
+          <th>Flight Number</th> 
+          <th>Departure Date</th>
+          <th>View Details</th>
+          <th>Delete</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <% flights.forEach(function(f) { %>
+          <tr>
+              <td><%= f.airline %></td>
+              <td><%= f.airport %></td> 
+              <td><%= f.flightNo %></td> 
+              <td><%= f.departs %></td>
+              <td> <a href="/flights/<%=f._id%>">Details</a> &nbsp;<a href="/flights/<%=f._id%>/edit">Edit</a></td>
+              <td>
+                <form action="/flights/<%=f._id%>?_method=DELETE" method="POST">
+                  <button class="button" type="submit">X</button>
+                </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href="/flights/new">Add New Flight</a>
+  </body>
+</html>

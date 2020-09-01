@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>New Ticket</h1>
+    <form method="POST" 
+    action="/flights/<%= flightID %>/tickets">
+    <label for="seat">SeatNumber (Enter between 'A1' and 'F99')</label>
+        <input type="seat" required pattern="[A-F][1-9]\d?"><br>
+            <label for="price">Price (between 1-400$</label>
+
+                   <input name="price" type="number" min="0">
+            </label>
+
+            <button class="submit-button" type="submit">Submit</button>
+    
+        </form>
+</body>
+</html>
