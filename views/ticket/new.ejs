@@ -8,9 +8,9 @@
 <body>
     <h1>New Ticket</h1>
     <form method="POST" 
-    action="/flights/<%= flightID %>/tickets">
+    action="/flights/<%= flightID %>/ticket">
     <label for="seat">SeatNumber (Enter between 'A1' and 'F99')</label>
-        <input type="seat" required pattern="[A-F][1-9]\d?"><br>
+        <input name="seat" required pattern="[A-F][1-9]\d?"><br>
             <label for="price">Price (between 1-400$</label>
 
                    <input name="price" type="number" min="0">

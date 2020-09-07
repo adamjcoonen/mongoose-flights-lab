@@ -101,8 +101,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Destination</th>
-                            <th>Arrival Time</th>
+                            <th>Seat Number</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                    
@@ -117,10 +117,11 @@
                     </tbody>
                 <% }else{ %> 
                 </table>
-                <a href="/flights/<%= flight._id %>/ticket/new">Add tickets</a>
+               <h3>No Tickets to show</h3>
             </tr>
         </td>
     <% } %> 
+    <a href="/flights/<%= flight._id %>/ticket/new">Add tickets</a>
     </table>
     </body>
 </html>
